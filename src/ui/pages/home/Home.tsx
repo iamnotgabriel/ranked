@@ -1,5 +1,10 @@
-import React from "react";
+import { useState } from "react";
 
 export function Home() {
-  return <> Hello! </>;
+  const [items, setItems] = useState([]);
+  return (
+    <>
+      <input type="text" />
+    </>
+  );
 }
