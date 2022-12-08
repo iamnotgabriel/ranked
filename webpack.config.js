@@ -6,7 +6,10 @@ module.exports = {
   output: {path: path.join(__dirname, "build"), filename: "index.bundle.js"},
   mode: process.env.NODE_ENV  || "development",
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      "@": path.join(__dirname, "src"),
+    },
+    extensions: [".ts",".tsx", ".js", ".json"],
   },
   devServer:  { static: path.join(__dirname, "src") },
   module: {
