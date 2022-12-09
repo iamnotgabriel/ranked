@@ -13,6 +13,7 @@
       "@/*": ["*"],
       "@/tests/*": ["../tests/*"]
     },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "allowJs": true,
     "resolveJsonModule": true
   },

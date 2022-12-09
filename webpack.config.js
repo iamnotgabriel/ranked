@@ -25,8 +25,12 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.(css|scss)$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.(css|scss|sass)$/,
+        use: [
+          {loader:"style-loader"},
+          {loader:"css-loader", options: { modules:true}},
+          {loader: "sass-loader"},
+        ],
       },
       {
         test: /\.(svg|webp|png|jpg|jpeg|gif|mp3)$/,
