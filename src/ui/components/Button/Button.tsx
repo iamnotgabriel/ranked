@@ -8,8 +8,8 @@ export type Props = {
 
 export function Button({ className, children, onClick }: Props) {
   return (
-    <span className={className} onClick={onClick}>
+    <button data-testid="btn" className={className} onClick={onClick}>
       {children}
-    </span>
+    </button>
   );
 }

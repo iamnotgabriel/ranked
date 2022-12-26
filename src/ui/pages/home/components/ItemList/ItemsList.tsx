@@ -1,5 +1,4 @@
-import { Button } from "@/ui/components/Button";
-import styles from "@/ui/pages/home/components/ItemList/styles.scss";
+import { Button } from "@/ui/components/Button/Button";
 
 export type Props = {
   items: string[];
@@ -12,11 +11,7 @@ export function ItemsList({ items, onDelete }: Props) {
       {items.length > 0 &&
         items.map((item, index) => (
           <li key={index}>
-            {item}{" "}
-            <Button className={styles.delete} onClick={() => onDelete(index)}>
-              {" "}
-              {" X"}
-            </Button>
+            {item} <Button onClick={() => onDelete(index)}>{" X"}</Button>
           </li>
         ))}
     </ul>

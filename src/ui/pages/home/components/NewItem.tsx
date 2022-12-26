@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, KeyboardEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 
 export type Props = {
   onSubmit(newItem: string): void;
