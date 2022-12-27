@@ -1,14 +1,20 @@
 import { ReactNode } from "react";
 
 export type Props = {
-  onClick(): void;
+  onClick?: () => void;
+  name?: string;
+  type?: "button" | "submit" | "reset";
   children?: ReactNode;
-  className?: string;
 };
 
-export function Button({ className, children, onClick }: Props) {
+export function Button({ name, type = "button", children, onClick }: Props) {
   return (
-    <button data-testid="btn" className={className} onClick={onClick}>
+    <button
+      name={name}
+      data-testid={name?.length > 0 ? `btn-${name}` : "btn"}
+      type={type}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

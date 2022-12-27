@@ -15,7 +15,7 @@ describe("NewItem", () => {
       <NewItem onSubmit={onSubmit} />
     );
     const $input = getByTestId("new-item-input");
-    const $submit = getByTestId("new-item-submit");
+    const $submit = getByTestId("btn-new-item");
 
     await user.type($input, "Beach");
     await user.click($submit);

@@ -1,3 +1,4 @@
+import { Button } from "@/ui/components/Button/Button";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 
 export type Props = {
@@ -26,9 +27,9 @@ export function NewItem({ onSubmit }: Props) {
       tabIndex={0}
     >
       <input data-testid="new-item-input" type="text" onChange={handleChange} />
-      <button data-testid="new-item-submit" type="submit">
+      <Button name="new-item" type="submit">
         SUBMIT
-      </button>
+      </Button>
     </form>
   );
 }

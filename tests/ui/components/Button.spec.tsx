@@ -11,18 +11,21 @@ describe("Button", () => {
   });
 
   test("renders children inside button", () => {
-    const { getByText } = render(<Button onClick={() => null}>SUBMIT</Button>);
+    const { getByText } = render(<Button>SUBMIT</Button>);
 
     expect(getByText("SUBMIT")).toBeVisible();
   });
 
-  test("", () => {
-    const { getByText } = render(
-      <Button className="hello" onClick={() => null}>
-        SUBMIT
-      </Button>
-    );
+  test("data-testid contains name of button", () => {
+    const { getByTestId } = render(<Button name="test">SUBMIT</Button>);
 
-    expect(getByText("SUBMIT")).toBeVisible();
+    expect(getByTestId("btn-test")).toBeVisible();
+  });
+
+  test("buttons has type button by default", () => {
+    const { getByTestId } = render(<Button name="test">SUBMIT</Button>);
+
+    expect(getByTestId("btn-test")).toHaveProperty("type", "button");
+    expect(getByTestId("btn-test")).toHaveProperty("name", "test");
   });
 });
