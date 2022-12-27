@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { PageProps } from "@/ui/pages/Router";
 import { ItemsList } from "./components/ItemList/ItemsList";
 import { NewItem } from "./components/NewItem";
+import { Button } from "@/ui/components/Button/Button";
 
-export function Home() {
+type Props = PageProps;
+export function Home({ page }: Props) {
   const [items, setItems] = useState([] as string[]);
   const onNewItemSubmit = (newItem: string) => {
     setItems([...items, newItem]);
@@ -17,6 +20,7 @@ export function Home() {
     <>
       <NewItem onSubmit={onNewItemSubmit} />
       <ItemsList items={items} onDelete={onDelete} />
+      <Button onClick={() => page.goToPage("/ranking")} />
     </>
   );
 }

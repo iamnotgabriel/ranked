@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router } from "@/main/Router";
+import { RankedRouter } from "@/main/router";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <RankedRouter />
   </React.StrictMode>,
   document.getElementById("root")
 );

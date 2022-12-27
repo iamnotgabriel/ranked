@@ -4,9 +4,9 @@ import { fireEvent, render } from "@testing-library/react";
 describe("Button", () => {
   test("calls click event when button is clicked", () => {
     const onClick = jest.fn();
-    const { container } = render(<Button onClick={onClick} />);
+    const { getByTestId } = render(<Button onClick={onClick} />);
 
-    fireEvent.click(container);
+    fireEvent.click(getByTestId("btn"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
