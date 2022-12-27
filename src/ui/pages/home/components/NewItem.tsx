@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useRef, useState } from "react";
 export type Props = {
   onSubmit(newItem: string): void;
 };
+
 export function NewItem({ onSubmit }: Props) {
   const [newItem, setNewItem] = useState("");
   const itemForm = useRef(null as HTMLFormElement);
@@ -18,10 +19,15 @@ export function NewItem({ onSubmit }: Props) {
   };
 
   return (
-    <form ref={itemForm} onSubmit={handleSubmit} tabIndex={0}>
-      <input type="text" onChange={handleChange} />
-      <button type="submit">
-        <span>SUBMIT</span>
+    <form
+      data-testid="new-item-form"
+      ref={itemForm}
+      onSubmit={handleSubmit}
+      tabIndex={0}
+    >
+      <input data-testid="new-item-input" type="text" onChange={handleChange} />
+      <button data-testid="new-item-submit" type="submit">
+        SUBMIT
       </button>
     </form>
   );
