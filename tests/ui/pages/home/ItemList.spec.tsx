@@ -1,9 +1,15 @@
 import { fireEvent, render } from "@testing-library/react";
 import { ItemsList } from "@/ui/pages/home/components/ItemsList";
+import { Item } from "@/domain/item";
 
 describe("ItemList", () => {
   test("list all items in input", () => {
-    const items = ["Beach", "Mountain", "Forest", "Grove"];
+    const items = [
+      new Item("Beach"),
+      new Item("Mountain"),
+      new Item("Forest"),
+      new Item("Grove"),
+    ];
 
     const { getByText } = render(
       <ItemsList items={items} onDelete={() => null} />
@@ -16,7 +22,13 @@ describe("ItemList", () => {
   });
 
   test("delete a item of the list when delete button is clicked", () => {
-    const items = ["Beach", "Mountain", "Forest", "Grove"];
+    const items = [
+      new Item("Beach"),
+      new Item("Mountain"),
+      new Item("Forest"),
+      new Item("Grove"),
+    ];
+
     const onDelete = (index: number) => {
       items.splice(index, 1);
     };

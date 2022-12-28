@@ -1,7 +1,8 @@
+import { Item } from "@/domain/item";
 import { Button } from "@/ui/components/Button/Button";
 
 export type Props = {
-  items: string[];
+  items: Item[];
   onDelete(index: number): void;
 };
 
@@ -11,7 +12,7 @@ export function ItemsList({ items, onDelete }: Props) {
       {items.length > 0 &&
         items.map((item, index) => (
           <li key={index}>
-            {item} <Button onClick={() => onDelete(index)}>{" X"}</Button>
+            {item.value} <Button onClick={() => onDelete(index)}>X</Button>
           </li>
         ))}
     </ol>

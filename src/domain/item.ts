@@ -2,7 +2,7 @@ export class Item {
   victories: Item[];
   losses: Item[];
 
-  constructor(private readonly value: string) {
+  constructor(readonly value: string) {
     this.losses = [];
     this.victories = [];
   }
