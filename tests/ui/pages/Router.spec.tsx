@@ -39,4 +39,29 @@ describe("Router", () => {
 
     expect(await findByTestId("second-page")).toHaveTextContent("SECOND");
   });
+
+  test("changes pages with data when goToPage is called", async () => {
+    const pages: PagesIndex = {
+      "/": {
+        element: ({ page }: PageProps) => {
+          useEffect(() => {
+            page.goToPage("/second-page", {
+              message: "this is a message from a new page",
+            });
+          }, []);
+          return <> INITIAL </>;
+        },
+      },
+      "/second-page": {
+        element: ({ page }: PageProps) => (
+          <div data-testid="second-page"> {page.data["message"]} </div>
+        ),
+      },
+    };
+    const { findByTestId } = render(<Router initialPage={"/"} pages={pages} />);
+
+    expect(await findByTestId("second-page")).toHaveTextContent(
+      "this is a message from a new page"
+    );
+  });
 });
